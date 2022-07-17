@@ -1,7 +1,7 @@
-
+# © @PredatorHackerzZ | @MrAbhi2k3
 import asyncio
 from pyrogram import types, errors, enums
-from config import Config
+from sample_config import Config
 from database.database import db
 
 async def OpenSettings(m: "types.Message"):
