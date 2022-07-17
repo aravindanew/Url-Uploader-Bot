@@ -8,27 +8,34 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 
 async def ForceSub(bot: Client, cmd: Message):
     try:
-        user = await bot.get_chat_member(chat_id=(int(Config.UPDATES_CHANNEL) if Config.UPDATE_CHANNEL.startswith("-100") else Config.UPDATE_CHANNEL), user_id=cmd.from_user.id)
+        invite_link = await bot.create_chat_invite_link(int(Config.UPDATES_CHANNEL))
+    except FloodWait as e:
+        await asyncio.sleep(e.x)
+        return 400
+    try:
+        user = await bot.get_chat_member(int(Config.UPDATES_CHANNEL), user_id=cmd.from_user.id)
         if user.status == "banned":
             await bot.send_message(
                 chat_id=cmd.from_user.id,
                 text="Access Denied ⚠. Contact my [Support Group](https://t.me/TeleRoid14).",
                 parse_mode="markdown",
-                disable_web_page_preview=True
+                disable_web_page_preview=True,
+                reply_to_message_id=message.id,
             )
             return 400
     except UserNotParticipant:
         await bot.send_message(
             chat_id=cmd.from_user.id,
-            text="**Please Join My Updates Channel to use this Bot!**\n\nDue to Overload, Only Channel Subscribers can use the Bot!\n\nAnd Still If Bot AskS For Joining Updates Channel then Join @MoviesFlixers_DL this Channel too.",
+            text="Pʟᴇᴀsᴇ Jᴏɪɴ Mʏ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ Tᴏ Usᴇ Mᴇ!\n\nDᴜᴇ ᴛᴏ Oᴠᴇʀʟᴏᴀᴅ, Oɴʟʏ Cʜᴀɴɴᴇʟ Sᴜʙsᴄʀɪʙᴇʀs Cᴀɴ Usᴇ Mᴇ!",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🤖 Join Updates Channel", url="https://t.me/TeleRoidGroup")
+                        InlineKeyboardButton("🤖 Jᴏɪɴ ᴍʏ ᴜᴘᴅᴀᴛᴇs ᴄʜᴀɴɴᴇʟ 🤖", url=invite_link.invite_link)
                     ]
                 ]
             ),
-            parse_mode="markdown"
+            parse_mode=enums.ParseMode.MARKDOWN,
+            reply_to_message_id=message.id,
         )
         return 400
     except Exception:
@@ -36,7 +43,7 @@ async def ForceSub(bot: Client, cmd: Message):
             chat_id=cmd.from_user.id,
             text="Something Went Wrong. Contact my [Support Group](https://t.me/TeleRoid14)",
             parse_mode="markdown",
-            disable_web_page_preview=True
+            disable_web_page_preview=True,
+            reply_to_message_id=message.id,
         )
         return 400
-    return 200
