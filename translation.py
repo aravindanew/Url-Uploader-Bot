@@ -109,6 +109,7 @@ sʜᴏᴡ ᴛʜᴜᴍʙɴᴀɪʟ
         ]]
     )
     SETTINGS_TEXT = "Sᴇɴᴅ ᴍᴇ ᴀɴʏ ᴄᴜsᴛᴏᴍ ᴛʜᴜᴍʙɴᴀɪʟ ᴛᴏ sᴇᴛ ɪᴛ"
+    DONATE_TEXT = "Nice to Know, that You are Donating Us. "
     IFLONG_FILE_NAME = " Only 64 characters can be named . "
     RENAME_403_ERR = "Sorry. You are not permitted to rename this file."
     ABS_TEXT = " Please don't be selfish."
@@ -175,4 +176,14 @@ Free users only 1 request per 30 minutes.
     FORCE_SUBSCRIBE_TEXT = "<code>Sorry Dear You Must Join My Updates Channel for using me 😉....</code>"
     BANNED_USER_TEXT = "<code>You are Banned!</code>"
     CHECK_LINK = "Pʀᴏᴄᴇssɪɴɢ ʏᴏᴜʀ ʟɪɴᴋ ⌛"
+    RENAME_403_ERR = "<b>You Are Not Authorized 🚸.\nAsk In [Support Group](https://t.me/TeleRoid14)</b>"
+    CURENT_PLAN_DETAILS = """Current Plan Details for Bot.
+-----------------------------
+➠ Telegram ID: <code>{}</code>
 
+➠ Plan name: 75GB Per Month
+
+➠ Expires on: Until You Die! 🤓
+
+➠ If You need Private Bot Please Ch3ck @PayForBotz.
+-----------------------------"""
