@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# (c) Shrimadhav U K | Modifieded By : @DC4_WARRIOR
+# (c) Shrimadhav U K | @MrAbhi2k3 | @DC4_WARRIOR
 
 # the logging things
 import logging
@@ -50,7 +50,7 @@ async def save_photo(bot, update):
         text=Translation.SAVED_CUSTOM_THUMB_NAIL,
         reply_to_message_id=update.id
     )
-    await db.set_thumbnail(update.from_user.id, thumbnail=update.photo.file_id)
+    await clinton.set_thumbnail(update.from_user.id, thumbnail=update.photo.file_id)
 
 @Clinton.on_message(filters.command(["deletethumbnail"]))
 async def delete_thumbnail(bot, update):
