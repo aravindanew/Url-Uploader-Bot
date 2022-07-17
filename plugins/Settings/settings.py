@@ -2,11 +2,11 @@
 import asyncio
 from pyrogram import types, errors, enums
 from sample_config import Config
-from database.database import db
+from database.access import clinton
 
 async def OpenSettings(m: "types.Message"):
     usr_id = m.chat.id
-    user_data = await db.get_user_data(usr_id)
+    user_data = await clinton.get_user_data(usr_id)
     if not user_data:
         await m.edit("Failed to fetch your data from database!")
         return
