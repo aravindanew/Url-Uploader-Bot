@@ -1,3 +1,4 @@
+pyrogram==1.4.16
 numpy
 Pillow
 yt-dlp
@@ -12,4 +13,3 @@ aiofiles
 dnspython
 motor[srv]
 beautifulsoup4
-pyrogram==1.4.12
