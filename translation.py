@@ -75,12 +75,13 @@ sʜᴏᴡ ᴛʜᴜᴍʙɴᴀɪʟ
 
     START_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('⚙Join Updates Channel ⚙ ', url='https://t.me/TeleRoidGroup')
+        InlineKeyboardButton('⚙ Join Updates Channel ⚙ ', url='https://t.me/TeleRoidGroup')
         ],[
         InlineKeyboardButton('🆘 Hᴇʟᴘ', callback_data='help'),
-        InlineKeyboardButton('👤 Aʙᴏᴜᴛ', callback_data='about')
-        ],[
+        InlineKeyboardButton('👤 Aʙᴏᴜᴛ', callback_data='about'),
         InlineKeyboardButton('🔐 Cʟᴏsᴇ', callback_data='close')
+        ],[
+        InlineKeyboardButton('🗜️ Sᴇᴛᴛɪɴɢs', callback_data='OpenSettings')
         ]]
     )
     HELP_BUTTONS = InlineKeyboardMarkup(
@@ -99,15 +100,15 @@ sʜᴏᴡ ᴛʜᴜᴍʙɴᴀɪʟ
         InlineKeyboardButton('🔐 Cʟᴏsᴇ', callback_data='close')
         ]]
     )
-    BUTTONS = InlineKeyboardMarkup(
+    SETTINGS_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('🏡 ʜᴏᴍᴇ', callback_data='home'),
-        InlineKeyboardButton('🆘 ʜᴇʟᴘ', callback_data='help')
+        InlineKeyboardButton('🆘 Dᴏɴᴀᴛᴇ', callback_data='donate')
         ],[
         InlineKeyboardButton('🔐 ᴄʟᴏsᴇ', callback_data='close')
         ]]
     )
-
+    SETTINGS_TEXT = "Sᴇɴᴅ ᴍᴇ ᴀɴʏ ᴄᴜsᴛᴏᴍ ᴛʜᴜᴍʙɴᴀɪʟ ᴛᴏ sᴇᴛ ɪᴛ"
     IFLONG_FILE_NAME = " Only 64 characters can be named . "
     RENAME_403_ERR = "Sorry. You are not permitted to rename this file."
     ABS_TEXT = " Please don't be selfish."
