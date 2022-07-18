@@ -31,7 +31,7 @@ class Config(object):
     # your telegram id
     OWNER_ID = int(os.environ.get("OWNER_ID", ""))
     # Update channel for Force Subscribe
-    UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "")
+    UPDATES_CHANNEL = os.environ.get("UPDATE_CHANNEL", "")
     # database session name, example: xurluploader
     SESSION_NAME = os.environ.get("SESSION_NAME", "")
     # database uri (mongodb)
