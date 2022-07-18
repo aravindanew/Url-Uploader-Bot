@@ -10,7 +10,7 @@ from plugins.dl_button import ddl_call_back
 from translation import Translation
 
 from pyrogram import filters
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery, Message
 
 from plugins.Settings.settings import OpenSettings
 from database.access import clinton
@@ -51,8 +51,8 @@ async def button(bot, update):
         else:
             await update.answer()
             await bot.send_photo(update.message.chat.id, thumbnail, "Custom Thumbnail",
-                               reply_markup=types.InlineKeyboardMarkup([[
-                                   types.InlineKeyboardButton("Delete Thumbnail",
+                               reply_markup=InlineKeyboardMarkup([[
+                                   InlineKeyboardButton("Delete Thumbnail",
                                                               callback_data="deleteThumbnail")
                                ]]))
     elif update.data == "deleteThumbnail":
