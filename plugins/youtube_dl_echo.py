@@ -138,7 +138,7 @@ async def echo(bot, update):
             x_reponse, _ = x_reponse.split("\n")
         response_json = json.loads(x_reponse)
         save_ytdl_json_path = Config.DOWNLOAD_LOCATION + \
-            "/" + str(update.from_user.id) + f'{randem}' + ".json"
+            "/" + str(update.from_user.id) + ".json"
         with open(save_ytdl_json_path, "w", encoding="utf8") as outfile:
             json.dump(response_json, outfile, ensure_ascii=False)
         # logger.info(response_json)
@@ -169,7 +169,7 @@ async def echo(bot, update):
                     ]
                     """if duration is not None:
                         cb_string_video_message = "{}|{}|{}|{}|{}".format(
-                            "vm", format_id, format_ext, ran, randem)
+                            "vm", format_id, format_ext)
                         ikeyboard.append(
                             InlineKeyboardButton(
                                 "VM",
