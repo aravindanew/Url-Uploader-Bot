@@ -25,7 +25,7 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 from pyrogram import filters
 from database.adduser import AddUser
 from helper_funcs.help_Nekmo_ffmpeg import take_screen_shot
-
+from helper_funcs.forcesub import ForceSub
 
 @Clinton.on_message(filters.private & filters.photo)
 async def save_photo(bot, update):
@@ -33,8 +33,8 @@ async def save_photo(bot, update):
         return await update.reply_text("I don't know about you sar :(")
     await AddUser(bot, update)
     if Config.UPDATES_CHANNEL:
-      fsub = await ForceSub(bot, update)
-      if fsub == 400:
+      forcesub = await ForceSub(bot, update)
+      if forcesub == 400:
         return
     # received single photo
     download_location = os.path.join(
@@ -58,8 +58,8 @@ async def delete_thumbnail(bot, update):
         return await update.reply_text("I don't know about you sar :(")
     await AddUser(bot, update)
     if Config.UPDATES_CHANNEL:
-      fsub = await ForceSub(bot, update)
-      if fsub == 400:
+      forcesub = await ForceSub(bot, update)
+      if forcesub == 400:
         return
 
     download_location = os.path.join(
@@ -84,8 +84,8 @@ async def viewthumbnail(bot, update):
         return await update.reply_text("I don't know about you sar :(")
     await AddUser(bot, update) 
     if Config.UPDATES_CHANNEL:
-      fsub = await ForceSub(bot, update)
-      if fsub == 400:
+      forcesub = await ForceSub(bot, update)
+      if forcesub == 400:
         return   
     thumbnail = await clinton.get_thumbnail(update.from_user.id)
     if thumbnail is not None:
