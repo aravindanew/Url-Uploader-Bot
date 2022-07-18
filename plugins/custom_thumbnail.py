@@ -50,8 +50,7 @@ async def viewthumbnail(bot, update):
         caption=f"ʏᴏᴜʀ ᴄᴜʀʀᴇɴᴛ sᴀᴠᴇᴅ ᴛʜᴜᴍʙɴᴀɪʟ 🦠",
         reply_markup=InlineKeyboardMarkup(
                     [[InlineKeyboardButton("🗑️ ᴅᴇʟᴇᴛᴇ ᴛʜᴜᴍʙɴᴀɪʟ", callback_data="deleteThumbnail")]]
-                ),
-        reply_to_message_id=update.id)
+                )
     else:
         await update.reply_text(text=f"No Thumbnail found 🤒")
 
