@@ -1,6 +1,6 @@
 # © @PredatorHackerzZ | @MrAbhi2k3
 import asyncio
-from pyrogram import types, errors, enums
+from pyrogram import types, errors
 from sample_config import Config
 from database.access import clinton
 
@@ -31,7 +31,7 @@ async def OpenSettings(m: "types.Message"):
             text="**ʜᴇʀᴇ ʏᴏᴜ ᴄᴀɴ sᴇᴛᴜᴘ ʏᴏᴜʀ sᴇᴛᴛɪɴɢs**",
             reply_markup=types.InlineKeyboardMarkup(buttons_markup),
             disable_web_page_preview=True,
-            parse_mode=enums.ParseMode.MARKDOWN
+            parse_mode=ParseMode.MARKDOWN
         )
     except errors.MessageNotModified: pass
     except errors.FloodWait as e:
