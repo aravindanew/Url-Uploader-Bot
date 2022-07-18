@@ -108,8 +108,13 @@ sʜᴏᴡ ᴛʜᴜᴍʙɴᴀɪʟ
         InlineKeyboardButton('🔐 ᴄʟᴏsᴇ', callback_data='close')
         ]]
     )
+    DONATE_BUTTONS = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('💸 Donate', url='https://t.me/DonateXRobot')
+        ]]
+    )
     SETTINGS_TEXT = "Sᴇɴᴅ ᴍᴇ ᴀɴʏ ᴄᴜsᴛᴏᴍ ᴛʜᴜᴍʙɴᴀɪʟ ᴛᴏ sᴇᴛ ɪᴛ"
-    DONATE_TEXT = "Nice to Know, that You are Donating Us. "
+    DONATE_TEXT = "Nice to Know, that You are Donating Us.\n UPI :- `sk7062563@okhdfcbank`"
     IFLONG_FILE_NAME = " Only 64 characters can be named . "
     RENAME_403_ERR = "Sorry. You are not permitted to rename this file."
     ABS_TEXT = " Please don't be selfish."
