@@ -18,6 +18,7 @@ from sample_config import Config
 # the Strings used for this "thing"
 from translation import Translation
 from pyrogram import Client as Clinton
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery, ForceReply
 from database.access import clinton
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
