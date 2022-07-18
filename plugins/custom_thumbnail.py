@@ -25,68 +25,22 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 from pyrogram import filters
 from database.adduser import AddUser
 from helper_funcs.help_Nekmo_ffmpeg import take_screen_shot
-from helper_funcs.forcesub import ForceSub
 
 @Clinton.on_message(filters.private & filters.photo)
 async def save_photo(bot, update):
-    if not update.from_user:
-        return await update.reply_text("I don't know about you sar :(")
     await AddUser(bot, update)
-    if Config.UPDATES_CHANNEL:
-      forcesub = await ForceSub(bot, update)
-      if forcesub == 400:
-        return
-    # received single photo
-    download_location = os.path.join(
-        Config.DOWNLOAD_LOCATION,
-        str(update.from_user.id) + ".jpg"
-    )
-    await bot.download_media(
-        message=update,
-        file_name=download_location
-    )
-    await bot.send_message(
-        chat_id=update.chat.id,
-        text=Translation.SAVED_CUSTOM_THUMB_NAIL,
-        reply_to_message_id=update.id
-    )
     await clinton.set_thumbnail(update.from_user.id, thumbnail=update.photo.file_id)
+    await bot.send_message(chat_id=update.chat.id, text=Translation.SAVED_CUSTOM_THUMB_NAIL, reply_to_message_id=update.message_id)
 
-@Clinton.on_message(filters.command(["deletethumbnail"]))
-async def delete_thumbnail(bot, update):
-    if not update.from_user:
-        return await update.reply_text("I don't know about you sar :(")
+@Clinton.on_message(filters.private & filters.command("delthumbnail"))
+async def delthumbnail(bot, update):
     await AddUser(bot, update)
-    if Config.UPDATES_CHANNEL:
-      forcesub = await ForceSub(bot, update)
-      if forcesub == 400:
-        return
-
-    download_location = os.path.join(
-        DOWNLOAD_LOCATION,
-        str(update.from_user.id)
-    )
-    try:
-        os.remove(download_location + ".jpg")
-        # os.remove(download_location + ".json")
-    except:
-        pass
-    await bot.send_message(
-        chat_id=update.chat.id,
-        text=Translation.DEL_ETED_CUSTOM_THUMB_NAIL,
-        reply_to_message_id=update.id
-    )
     await clinton.set_thumbnail(update.from_user.id, thumbnail=None)
+    await bot.send_message(chat_id=update.chat.id, text=Translation.DEL_ETED_CUSTOM_THUMB_NAIL, reply_to_message_id=update.message_id)
 
 @Clinton.on_message(filters.private & filters.command("viewthumbnail") )
 async def viewthumbnail(bot, update):
-    if not update.from_user:
-        return await update.reply_text("I don't know about you sar :(")
-    await AddUser(bot, update) 
-    if Config.UPDATES_CHANNEL:
-      forcesub = await ForceSub(bot, update)
-      if forcesub == 400:
-        return   
+    await AddUser(bot, update)
     thumbnail = await clinton.get_thumbnail(update.from_user.id)
     if thumbnail is not None:
         await bot.send_photo(
@@ -98,8 +52,7 @@ async def viewthumbnail(bot, update):
                 ),
         reply_to_message_id=update.id)
     else:
-        await update.reply_text(text=f"ɴᴏ ᴛʜᴜᴍʙɴᴀɪʟ ғᴏᴜɴᴅ 🤒")
-
+        await update.reply_text(text=f"No Thumbnail found 🤒")
 
 async def Gthumb01(bot, update):
     thumb_image_path = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".jpg"
