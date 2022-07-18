@@ -17,10 +17,9 @@ async def ForceSub(bot: Client, cmd: Message):
         if user.status == "banned":
             await bot.send_message(
                 chat_id=cmd.from_user.id,
-                text="Access Denied ⚠. Contact my [Support Group](https://t.me/TeleRoid14).",
+                text="Access Denied ⚠. Contact [Support Group](https://t.me/TeleRoid14).",
                 parse_mode="markdown",
-                disable_web_page_preview=True,
-                reply_to_message_id=message.id,
+                disable_web_page_preview=True
             )
             return 400
     except UserNotParticipant:
@@ -34,8 +33,7 @@ async def ForceSub(bot: Client, cmd: Message):
                     ]
                 ]
             ),
-            parse_mode=enums.ParseMode.MARKDOWN,
-            reply_to_message_id=message.id,
+            parse_mode="markdown"
         )
         return 400
     except Exception:
@@ -43,7 +41,6 @@ async def ForceSub(bot: Client, cmd: Message):
             chat_id=cmd.from_user.id,
             text="Something Went Wrong. Contact my [Support Group](https://t.me/TeleRoid14)",
             parse_mode="markdown",
-            disable_web_page_preview=True,
-            reply_to_message_id=message.id,
+            disable_web_page_preview=True
         )
         return 400
