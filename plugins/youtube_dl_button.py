@@ -90,7 +90,7 @@ async def youtube_dl_call_back(bot, update):
                 youtube_dl_url = youtube_dl_url[o:o + l]
     await update.message.edit_caption(
         caption=Translation.DOWNLOAD_START,
-        parse_mode="html"
+        parse_mode="HTML"
     )
     description = Translation.CUSTOM_CAPTION_UL_FILE
     if "fulltitle" in response_json:
@@ -163,7 +163,7 @@ async def youtube_dl_call_back(bot, update):
     if e_response and ad_string_to_replace in e_response:
         error_message = e_response.replace(ad_string_to_replace, "")
         await update.message.edit_caption(
-            parse_mode="html",
+            parse_mode="HTML",
             text=error_message
         )
         return False
@@ -196,7 +196,7 @@ async def youtube_dl_call_back(bot, update):
             await update.message.edit_caption(
                 
                 caption=Translation.RCHD_TG_API_LIMIT.format(time_taken_for_download, humanbytes(file_size)),
-                parse_mode="html"
+                parse_mode="HTML"
             )
         else:
             is_w_f = False
@@ -211,7 +211,7 @@ async def youtube_dl_call_back(bot, update):
             logger.info(images)'''
             await update.message.edit_caption(
                 caption=Translation.UPLOAD_START,
-                parse_mode="html"
+                parse_mode="HTML"
             )
 
             # ref: message from @Sources_codes
@@ -223,7 +223,7 @@ async def youtube_dl_call_back(bot, update):
                     document=download_directory,
                     thumb=thumbnail,
                     caption=description,
-                    parse_mode="html",
+                    parse_mode="HTML",
                     #reply_to_message_id=update.id,
                     progress=progress_for_pyrogram,
                     progress_args=(
@@ -243,7 +243,7 @@ async def youtube_dl_call_back(bot, update):
                     width=width,
                     height=height,
                     supports_streaming=True,
-                    parse_mode="html",
+                    parse_mode="HTML",
                     thumb=thumb_image_path,
                     #reply_to_message_id=update.id,
                     progress=progress_for_pyrogram,
@@ -260,7 +260,7 @@ async def youtube_dl_call_back(bot, update):
                     #chat_id=update.message.chat.id,
                     audio=download_directory,
                     caption=description,
-                    parse_mode="html",
+                    parse_mode="HTML",
                     duration=duration,
                     thumb=thumbnail,
                     #reply_to_message_id=update.id,
@@ -299,6 +299,6 @@ async def youtube_dl_call_back(bot, update):
                 pass
             await update.message.edit_caption(
                 caption=Translation.AFTER_SUCCESSFUL_UPLOAD_MSG_WITH_TS.format(time_taken_for_download, time_taken_for_upload),
-                parse_mode="html"
+                parse_mode="HTML"
             )
 
