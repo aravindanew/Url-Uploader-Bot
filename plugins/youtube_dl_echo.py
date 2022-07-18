@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# (c) Shrimadhav U K | @MrAbhi2k3 | @DC4_WARRIOR
+# (c) @MrAbhi2k3 
 
 # the logging things
 import logging
@@ -156,9 +156,9 @@ async def echo(bot, update):
                 approx_file_size = ""
                 if "filesize" in formats:
                     approx_file_size = humanbytes(formats["filesize"])
-                cb_string_video = "{}|{}|{}|{}".format(
+                cb_string_video = "{}|{}|{}".format(
                     "video", format_id, format_ext)
-                cb_string_file = "{}|{}|{}|{}".format(
+                cb_string_file = "{}|{}|{}".format(
                     "file", format_id, format_ext)
                 if format_string is not None and not "audio only" in format_string:
                     ikeyboard = [
@@ -189,9 +189,9 @@ async def echo(bot, update):
                     ]
                 inline_keyboard.append(ikeyboard)
             if duration is not None:
-                cb_string_64 = "{}|{}|{}|{}".format("audio", "64k", "mp3")
-                cb_string_128 = "{}|{}|{}|{}".format("audio", "128k", "mp3")
-                cb_string = "{}|{}|{}|{}".format("audio", "320k", "mp3")
+                cb_string_64 = "{}|{}|{}".format("audio", "64k", "mp3")
+                cb_string_128 = "{}|{}|{}".format("audio", "128k", "mp3")
+                cb_string = "{}|{}|{}".format("audio", "320k", "mp3")
                 inline_keyboard.append([
                     InlineKeyboardButton(
                         "🎵 ᴍᴘ𝟹 " + "(" + "64 ᴋʙᴘs" + ")", callback_data=cb_string_64.encode("UTF-8")),
@@ -209,9 +209,9 @@ async def echo(bot, update):
         else:
             format_id = response_json["format_id"]
             format_ext = response_json["ext"]
-            cb_string_file = "{}|{}|{}|{}".format(
+            cb_string_file = "{}|{}|{}".format(
                 "file", format_id, format_ext)
-            cb_string_video = "{}|{}|{}|{}".format(
+            cb_string_video = "{}|{}|{}".format(
                 "video", format_id, format_ext)
             inline_keyboard.append([
                 InlineKeyboardButton(
