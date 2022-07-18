@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# (c) Shrimadhav U K | Modifieded By : @DC4_WARRIOR
+# (c) Shrimadhav U K | Modifieded By : @MrAbhi2k3
 
 # the logging things
 import logging
@@ -23,6 +23,7 @@ else:
 # the Strings used for this "thing"
 from translation import Translation
 from plugins.custom_thumbnail import *
+from database.access import clinton
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 from helper_funcs.display_progress import progress_for_pyrogram, humanbytes, TimeFormatter
 from hachoir.metadata import extractMetadata
@@ -34,12 +35,11 @@ from PIL import Image
 async def youtube_dl_call_back(bot, update):
     cb_data = update.data
     # youtube_dl extractors
-    tg_send_type, youtube_dl_format, youtube_dl_ext, ranom = cb_data.split("|")
+    tg_send_type, youtube_dl_format, youtube_dl_ext = cb_data.split("|")
     print(cb_data)
-    random1 = random_char(5)
     
     save_ytdl_json_path = Config.DOWNLOAD_LOCATION + \
-        "/" + str(update.from_user.id) + f'{ranom}' + ".json"
+        "/" + str(update.from_user.id) + ".json"
     try:
         with open(save_ytdl_json_path, "r", encoding="utf8") as f:
             response_json = json.load(f)
@@ -96,7 +96,7 @@ async def youtube_dl_call_back(bot, update):
     if "fulltitle" in response_json:
         description = response_json["fulltitle"][0:1021]
         # escape Markdown and special characters
-    tmp_directory_for_each_user = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + f'{random1}'
+    tmp_directory_for_each_user = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id)'
     if not os.path.isdir(tmp_directory_for_each_user):
         os.makedirs(tmp_directory_for_each_user)
     download_directory = tmp_directory_for_each_user + "/" + custom_file_name
@@ -216,7 +216,7 @@ async def youtube_dl_call_back(bot, update):
 
             # ref: message from @Sources_codes
             start_time = time.time()
-            if (await db.get_upload_as_doc(update.from_user.id)) is False:
+            if (await clinton.get_upload_as_doc(update.from_user.id)) is False:
                 thumbnail = await Gthumb01(bot, update)
                 await update.message.reply_document(
                     #chat_id=update.message.chat.id,
