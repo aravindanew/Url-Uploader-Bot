@@ -20,9 +20,7 @@ import time
 import shutil
 import asyncio
 from PIL import Image
-    from sample_config import Config
-else:
-    from config import Config
+
 from datetime import datetime
 from database.access import clinton
 from translation import Translation
