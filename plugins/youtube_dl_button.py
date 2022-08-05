@@ -20,10 +20,10 @@ import time
 import shutil
 import asyncio
 from PIL import Image
-
 from datetime import datetime
 from database.access import clinton
 from translation import Translation
+    from sample_config import Config
 from plugins.custom_thumbnail import *
 from pyrogram.types import InputMediaPhoto
 from helper_funcs.display_progress import progress_for_pyrogram, humanbytes
