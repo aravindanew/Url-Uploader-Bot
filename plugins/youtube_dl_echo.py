@@ -11,7 +11,7 @@ import requests, urllib.parse, filetype, os, time, shutil, tldextract, asyncio, 
 from PIL import Image
 # the secret configuration specific things
 if bool(os.environ.get("WEBHOOK", False)):
-from config import Config
+from sample_config import Config
 from pyrogram import filters
 from database.access import clinton
 from translation import Translation
