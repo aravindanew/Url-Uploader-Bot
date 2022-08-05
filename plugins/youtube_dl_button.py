@@ -13,17 +13,21 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(leve
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 logger = logging.getLogger(__name__)
 
-import os
-import json
 import math
 import time
 import shutil
 import asyncio
+import json
+import os
+
+if bool(os.environ.get("WEBHOOK", False)):
+    from sample_config import Config
+else:
+    from config import Config
 from PIL import Image
 from datetime import datetime
 from database.access import clinton
 from translation import Translation
-    from sample_config import Config
 from plugins.custom_thumbnail import *
 from pyrogram.types import InputMediaPhoto
 from helper_funcs.display_progress import progress_for_pyrogram, humanbytes
